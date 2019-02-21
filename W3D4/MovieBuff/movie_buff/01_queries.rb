@@ -4,16 +4,6 @@ def it_was_ok
 end
 
 def harrison_ford
-  # Consider the following:
-  #
-  # Actor
-  #   .joins(:movies)
-  #   .where(movies: { title: 'Blade Runner' })
-  #
-  # It's possible to join based on active record relations defined in models.
-  #
-  # Find the id and title of all movies in which Harrison Ford
-  # appeared but not as a lead actor
 
   harrison_ford_films = Movie.select(:id, :title).joins(:actors).where(actors: { name: 'Harrison Ford' })
   harrison_ford_films.where.not(castings: { ord: 1})
@@ -33,6 +23,8 @@ def biggest_cast
   #
   # Find the id and title of the 3 movies with the
   # largest casts (i.e most actors)
+
+  Movie.select(:id, :title).joins(:castings).group('movies.id').order('COUNT(castings.actor_id) DESC').limit(3)
 
 end
 
