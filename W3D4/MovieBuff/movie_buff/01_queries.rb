@@ -10,20 +10,6 @@ def harrison_ford
 end
 
 def biggest_cast
-  # Consider the following:
-  #
-  # Actor
-  #   .joins(:movies)
-  #   .group('actors.id')
-  #   .order('COUNT(movies.id) DESC')
-  #   .limit(1)
-  #
-  # Sometimes we need to use aggregate SQL functions like COUNT, MAX, and AVG.
-  # Often these are combined with group.
-  #
-  # Find the id and title of the 3 movies with the
-  # largest casts (i.e most actors)
-
   Movie.select(:id, :title).joins(:castings).group('movies.id').order('COUNT(castings.actor_id) DESC').limit(3)
 
 end
@@ -40,6 +26,8 @@ def directed_by_one_of(them)
   # Movie.where(yr: years)
   #
   # Find the id and title of all the movies directed by one of 'them'.
+
+  Movie.select(:id, :title).joins(:director).where(actors: { name: them})
 
 end
 
