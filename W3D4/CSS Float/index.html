@@ -19,7 +19,7 @@
   </script>
 </head>
 <body>
-  <header>
+  <header class="cf">
     <img src="./assets/appacademylogo.png" alt="App Academy Logo">
     <nav>
       <ul>
@@ -29,7 +29,7 @@
       </ul>
     </nav>
   </header>
-
+<div class="col col-1-3">
   <aside>
     <h2 id="ingredients">Ingredients</h2>
 
@@ -50,7 +50,8 @@
       <li>1/2 tbsp fresh chopped parsley (optional, for garnish)</li>
     </ul>
   </aside>
-
+</div>
+<div class="col col-2-3">
   <section>
     <h1>Shakshukah</h1>
 
@@ -96,7 +97,7 @@
     <h2>Reviews</h2>
       <form id="review-form" action="/reviews" method="post">
         <label for="name">Name</label>
-        <input id="name" type="text" name="name">
+        <input id="name" type="text" name="name" class="col-1-3">
 
 
         1<input type="radio" name="rating" value="1" checked>
@@ -105,7 +106,7 @@
         4<input type="radio" name="rating" value="4">
         5<input type="radio" name="rating" value="5">
 
-        <select id="expertise" name="expertise">
+        <select class="col-1-3" id="expertise" name="expertise">
           <option value="Select Cooking Expertise" disabled="true" selected="true">Select Cooking Experise</option>
 
           <option value="Sometimes Cook">Sometimes Cook</option>
@@ -117,7 +118,7 @@
           <option value="Professional Chef">Professional Chef</option>
         </select>
 
-        <label>
+        <label class="col-2-3">
           <textarea id="review" name="review" cols="30" rows="10"></textarea>
         </label>
 
@@ -125,6 +126,7 @@
       </form>
   </section>
   </section>
+  </div>
 
 
   <footer>
